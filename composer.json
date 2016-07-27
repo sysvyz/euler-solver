@@ -1,0 +1,37 @@
+{
+  "name": "sysvyz/euler-solver",
+  "type": "library",
+  "description": "euler solver",
+  "keywords": ["language wrapper"],
+  "homepage": "https://github.com/sysvyz/euler-solver",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "angus",
+      "email": "angus9000@sysvyz.org",
+      "homepage": "http://sysvyz.org",
+      "role": "Developer"
+    },
+    {
+      "name": "Moritz Bauer",
+      "email": "mb@sysvyz.org",
+      "homepage": "http://sysvyz.org",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "sysvyz/cofi": "dev-master",
+    "sysvyz/anan": "dev-master",
+    "sysvyz/hurl": "dev-master"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.3.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "EulerSolver\\": "src",
+      "EulerSolverTest\\": "test"
+    }
+  }
+}
