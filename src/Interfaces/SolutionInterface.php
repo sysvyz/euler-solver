@@ -9,7 +9,9 @@
 namespace EulerSolver\Interfaces;
 
 
-interface SolutionInterface
+use JsonSerializable;
+
+interface SolutionInterface extends JsonSerializable
 {
 
     public function solve():int;

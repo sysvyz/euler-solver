@@ -9,7 +9,9 @@
 namespace EulerSolver\Interfaces;
 
 
-interface SolutionResponseInterface
+use JsonSerializable;
+
+interface SolutionResponseInterface extends JsonSerializable
 {
     /**
      * @return int

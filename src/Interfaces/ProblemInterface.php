@@ -10,8 +10,9 @@ namespace EulerSolver\Interfaces;
 
 
 use Doctrine\Instantiator\Exception\InvalidArgumentException;
+use JsonSerializable;
 
-interface ProblemInterface
+interface ProblemInterface extends JsonSerializable
 {
 
     public function getId():int;
