@@ -10,9 +10,10 @@ namespace EulerSolver;
 
 
 use Doctrine\Instantiator\Exception\InvalidArgumentException;
+use EulerSolver\Interfaces\EulerManagerInterface;
 use EulerSolver\Interfaces\ProblemInterface;
 
-class EulerManager
+class EulerManager implements EulerManagerInterface
 {
     /**
      * @var ProblemInterface[]
@@ -51,9 +52,13 @@ class EulerManager
     public function solveProblem($id)
     {
         $res = [];
+        $problem =$this->getProblem($id);
 
-        foreach ($this->getProblem($id)->getSolutions() as $solution) {
-            $res[$solution->getId()] = $solution->solve();
+        foreach ($problem->getSolutions() as $solution) {
+            $resTimeStart = microtime(true);
+            $resSolution = $solution->solve();
+            $resTime = microtime(true)- $resTimeStart;
+            $res[] = new SolutionResponse($resSolution,$solution,$problem,$resTime);
         }
 
         return $res;
@@ -68,7 +73,7 @@ class EulerManager
         return $this->problems[$id];
     }
 
-    public function setProblem(ProblemInterface $problem)
+    public function addProblem(ProblemInterface $problem)
     {
         $this->problems[$problem->getId()] = $problem;
     }
